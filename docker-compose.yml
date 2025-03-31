@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  blacklist-service:
+    build: .
+    container_name: blacklist-service
+    ports:
+      - "3001:3001"
+    environment:
+      DB_NAME: blacklist_db
+      DB_HOST: blacklist_db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      FLASK_ENV: development
+    volumes:
+      - .:/app
+    depends_on:
+      blacklist_db:
+        condition: service_healthy
+    networks:
+      - app_net
+
+  blacklist_db:
+    image: postgres:13
+    container_name: blacklist_db
+    environment:
+      POSTGRES_DB: blacklist_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 2s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - blacklist_postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_net
+
+volumes:
+  blacklist_postgres_data:
+
+networks:
+  app_net:
