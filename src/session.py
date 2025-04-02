@@ -14,11 +14,11 @@ class SessionConfig():
         db_url = os.getenv("DB_URL")
         if db_url:
             return db_url
-        db_user = os.environ['DB_USER']
-        db_pass = os.environ['DB_PASSWORD']
-        db_host = os.environ['DB_HOST']
-        db_port = os.environ['DB_PORT']
-        db_name = os.environ['DB_NAME']
+        db_user = os.environ['RDS_USERNAME']
+        db_pass = os.environ['RDS_PASSWORD']
+        db_host = os.environ['RDS_HOSTNAME']
+        db_port = os.environ['RDS_PORT']
+        db_name = os.environ['RDS_DB_NAME']
         return f'postgresql+psycopg2://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}'
 
 session_config = SessionConfig()
