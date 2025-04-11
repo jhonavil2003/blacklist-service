@@ -11,6 +11,9 @@ class SessionConfig():
         pass
 
     def url(self):
+        if os.environ.get("ENV") == "testing":
+            return os.environ.get("DB_URL", "sqlite:///:memory:")
+    
         db_url = os.getenv("DB_URL")
         if db_url:
             return db_url
