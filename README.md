@@ -12,7 +12,7 @@ Para la ejecución local del microservicio y su base de datos, se utiliza `docke
    ```
 2. **Ejecutar docker-compose**:
    ```bash
-   docker-compose up --build 
+   docker-compose up --build
    ```
 
 3. **Verificar contenedores activos**:
