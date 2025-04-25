@@ -4,6 +4,7 @@ phases:
   pre_build:
     commands:
       - pipenv install
+      - pipenv run pytest --cov=src --cov-fail-under=70
 artifacts:
   files:
     - '**/*'
