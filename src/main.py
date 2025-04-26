@@ -7,7 +7,7 @@ app.register_blueprint(blacklist_blueprint)
 
 @app.route("/ping", methods=["GET"])
 def ping():
-    return "pongggggg", 200
+    return "pong", 200
 
 @app.errorhandler(ApiError)
 def handle_api_error(error):
