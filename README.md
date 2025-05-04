@@ -16,7 +16,7 @@ Para la ejecución local del microservicio y su base de datos, se utiliza `docke
    ```
 
 3. **Verificar contenedores activos**:
-   ```bash
+   ```bash 
    docker ps
    ```
 
