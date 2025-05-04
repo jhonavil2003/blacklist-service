@@ -4,7 +4,7 @@ import json
 valid_headers = {
     "Authorization": "Bearer secret_token_blacklist",
     "Content-Type": "application/json"
-}
+} 
 
 def test_ping(test_client):
     """Verifica que el endpoint ping retorne 'pong'."""
