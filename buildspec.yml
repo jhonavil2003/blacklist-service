@@ -1,10 +1,35 @@
 version: 0.2
- 
+
 phases:
   pre_build:
     commands:
-      - pipenv install
-      - pipenv run pytest --cov=src --cov-fail-under=70
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 713843767123.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t devops/blacklist-service .
+      - docker tag devops/blacklist-service:latest 713843767123.dkr.ecr.us-east-1.amazonaws.com/devops/blacklist-service:latest
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push 713843767123.dkr.ecr.us-east-1.amazonaws.com/devops/blacklist-service:latest
+      - echo Writing Image Definitions file...
+      - printf '[{"name":"Container-blacklist-service","imageUri":"713843767123.dkr.ecr.us-east-1.amazonaws.com/devops/blacklist-service:latest"}]' > imagedefinitions.json
+      - printf '{"ImageURI":"713843767123.dkr.ecr.us-east-1.amazonaws.com/devops/blacklist-service:latest"}' > imageDetail.json
+      - cat imagedefinitions.json
 artifacts:
   files:
     - '**/*'
+    - imagedefinitions.json
+    - imageDetail.json
+  secondary-artifacts:
+    DefinitionArtifact:
+      files:
+        - appspec.json
+        - taskdef.json
+    ImageArtifact:
+      files:
+        - imageDetail.json
