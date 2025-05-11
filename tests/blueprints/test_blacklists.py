@@ -9,7 +9,7 @@ valid_headers = {
 def test_ping(test_client):
     """Verifica que el endpoint ping retorne 'pong'."""
     response = test_client.get("/ping")
-    assert response.status_code == 200
+    assert response.status_code == 500
     assert response.data.decode("utf-8") == "pong"
 
 def test_add_blacklist_missing_fields(test_client):
