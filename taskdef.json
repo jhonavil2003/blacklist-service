@@ -12,7 +12,29 @@
 
         "image": "<IMAGE1_NAME>",
         "essential": true,
-        "name": "Container-blacklist-service"
+        "name": "Container-blacklist-service",
+        "environment": [
+                {
+                    "name": "RDS_USERNAME",
+                    "value": "postgres"
+                },
+                {
+                    "name": "RDS_PASSWORD",
+                    "value": "postgres"
+                },
+                {
+                    "name": "RDS_HOSTNAME",
+                    "value": "database-blacklist-service.c50ncohlhglo.us-east-1.rds.amazonaws.com"
+                },
+                {
+                    "name": "RDS_PORT",
+                    "value": "5432"
+                },
+                {
+                    "name": "RDS_DB_NAME",
+                    "value": "postgres"
+                }
+        ]
       }
     ],
 
