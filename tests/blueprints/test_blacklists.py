@@ -20,7 +20,7 @@ def test_add_blacklist_missing_fields(test_client):
     assert "error" in data
 
 def test_add_blacklist_invalid_email(test_client):
-    """Prueba que se rechace un email con formato inválido."""
+    """Prueba que se rechace un email con formato inválido. """
     payload = {
         "email": "formato-email-incorrecto",
         "app_uuid": "123e4567-e89b-12d3-a456-426614174000"
