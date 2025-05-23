@@ -10,7 +10,7 @@ def test_ping(test_client):
     """Verifica que el endpoint ping retorne 'pong'."""
     response = test_client.get("/ping")
     assert response.status_code == 200
-    assert response.data.decode("utf-8") == "pongggg"
+    assert response.data.decode("utf-8") == "pong"
 
 def test_add_blacklist_missing_fields(test_client):
     """Prueba que se retorne error si faltan campos obligatorios."""
