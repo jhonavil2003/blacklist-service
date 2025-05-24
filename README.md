@@ -8,7 +8,7 @@ Para la ejecución local del microservicio y su base de datos, se utiliza `docke
 1. **Clonar este repositorio**:
    ```bash
    git clone https://github.com/fquinteroc/blacklist-service.git
-   cd blacklist-service
+   cd blacklist-service 
    ```
 2. **Ejecutar docker-compose**:
    ```bash
