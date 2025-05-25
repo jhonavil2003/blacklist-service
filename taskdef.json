@@ -49,6 +49,10 @@
           {
                     "name": "NEW_RELIC_MONITOR_MODE",
                     "value": "true"
+                },
+          {
+                    "name": "NEW_RELIC_LOG_LEVEL",
+                    "value": "error"
                 }
         ]
 
