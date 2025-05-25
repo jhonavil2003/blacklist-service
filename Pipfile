@@ -15,6 +15,7 @@ marshmallow = "*"
 psycopg2-binary = "*"
 sqlalchemy = "*"
 requests = "*"
+newrelic = "*"
 
 [dev-packages]
 coverage = "*"

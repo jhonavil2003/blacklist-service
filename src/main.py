@@ -1,6 +1,8 @@
 from flask import Flask, jsonify
 from src.blueprints.blacklists import blacklist_blueprint
 from src.errors.errors import ApiError
+import newrelic.agent
+newrelic.agent.initialize()
 
 app = Flask(__name__)
 app.register_blueprint(blacklist_blueprint)

@@ -33,6 +33,22 @@
                 {
                     "name": "RDS_DB_NAME",
                     "value": "postgres"
+                },
+                {
+                    "name": "NEW_RELIC_LICENSE_KEY",
+                    "value": "1d992cb779bcbde66cfa0e20e71724deFFFFNRAL"
+                },
+                {
+                    "name": "NEW_RELIC_APP_NAME",
+                    "value": "BlacklistApp"
+                },
+          {
+                    "name": "NEW_RELIC_LOG",
+                    "value": "stdout"
+                },
+          {
+                    "name": "NEW_RELIC_MONITOR_MODE",
+                    "value": "true"
                 }
         ]
 
